@@ -7,13 +7,13 @@ namespace Oblig_3_Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class addUserToDB : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addUserToDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002191151223_addUserToDB"; }
+            get { return "202002191426583_initial"; }
         }
         
         string IMigrationMetadata.Source

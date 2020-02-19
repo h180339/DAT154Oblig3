@@ -7,13 +7,13 @@ namespace Oblig_3_Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class getHotelRoomsDB : IMigrationMetadata
+    public sealed partial class ReservationDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(getHotelRoomsDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ReservationDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002191155171_getHotelRoomsDB"; }
+            get { return "202002191434293_ReservationDB"; }
         }
         
         string IMigrationMetadata.Source

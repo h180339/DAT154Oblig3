@@ -11,5 +11,6 @@ namespace Oblig_3_Web
     {
         public DbSet<User> Users { get; set; }
         public DbSet<HotelRoom> HotelRooms { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
     }
 }
