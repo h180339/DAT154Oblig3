@@ -15,15 +15,6 @@ namespace Oblig_3_Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            roomDbContext = new BookingDbContext();
-            DbSet<HotelRoom> roomList = roomDbContext.HotelRooms;
-            List<HotelRoom> list = roomList.ToList();
-            myDataGrid.DataSource = list;
-            myDataGrid.DataBind();
-        }
-
-        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -38,6 +29,18 @@ namespace Oblig_3_Web
                 roomSize = Convert.ToInt32(cells[2].Text),
                 quality = cells[3].Text
             };
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if(start_date_calendar.SelectedDate != null && end_date_calendar.SelectedDate != null)
+            {
+                roomDbContext = new BookingDbContext();
+                DbSet<HotelRoom> roomList = roomDbContext.HotelRooms;
+                List<HotelRoom> list = roomList.ToList();
+                myDataGrid.DataSource = list;
+                myDataGrid.DataBind();
+            }
         }
     }
 }

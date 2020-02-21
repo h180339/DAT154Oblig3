@@ -33,13 +33,13 @@ namespace Oblig_3_Web
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Calendar1 control.
+        /// start_date_calendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.Calendar start_date_calendar;
 
         /// <summary>
         /// Label2 control.
@@ -51,22 +51,22 @@ namespace Oblig_3_Web
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Calendar2 control.
+        /// end_date_calendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar2;
+        protected global::System.Web.UI.WebControls.Calendar end_date_calendar;
 
         /// <summary>
-        /// Button1 control.
+        /// search_button control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button search_button;
 
         /// <summary>
         /// myDataGrid control.
