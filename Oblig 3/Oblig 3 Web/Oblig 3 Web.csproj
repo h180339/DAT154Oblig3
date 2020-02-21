@@ -203,13 +203,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002191426583_initial.cs" />
-    <Compile Include="Migrations\202002191426583_initial.designer.cs">
-      <DependentUpon>202002191426583_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002191434293_ReservationDB.cs" />
-    <Compile Include="Migrations\202002191434293_ReservationDB.designer.cs">
-      <DependentUpon>202002191434293_ReservationDB.cs</DependentUpon>
+    <Compile Include="Migrations\202002201225386_initialize.cs" />
+    <Compile Include="Migrations\202002201225386_initialize.designer.cs">
+      <DependentUpon>202002201225386_initialize.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\HotelRoom.cs" />
@@ -260,11 +256,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002191426583_initial.resx">
-      <DependentUpon>202002191426583_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002191434293_ReservationDB.resx">
-      <DependentUpon>202002191434293_ReservationDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002201225386_initialize.resx">
+      <DependentUpon>202002201225386_initialize.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

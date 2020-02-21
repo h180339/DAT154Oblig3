@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oblig_3_Web.Migrations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,12 +12,18 @@ namespace Oblig_3_Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         //register_button click method
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("RegisterPage.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BookingPage.aspx");
         }
     }
 }

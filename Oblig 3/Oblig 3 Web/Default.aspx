@@ -12,7 +12,7 @@
     <div style="margin-top:20px">
         <asp:Label ID="password_label" runat="server" Text="Password : "></asp:Label>
         <asp:TextBox ID="password_textbox" runat="server"></asp:TextBox>
-        <asp:Button ID="Button2" runat="server" Text="Log in" style="margin-left:10px"/>
+        <asp:Button ID="Button2" runat="server" Text="Log in" style="margin-left:10px" OnClick="Button2_Click"/>
     </div>
     <div style="margin-top:20px">
         <asp:Label ID="Label1" runat="server" Text="If you are not a user, please register : "></asp:Label>

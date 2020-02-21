@@ -1,10 +1,11 @@
 ﻿namespace Oblig_3_Web.Migrations
 {
+    using Oblig_3_Web.Model;
+    using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using Oblig_3_Web.Model;
-
+    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Oblig_3_Web.BookingDbContext>
     {
@@ -28,17 +29,25 @@
             {
                 new HotelRoom
                 {
+                    Id = 1,
                     numberOfBeds = 2,
                     roomSize = 20,
                     quality = "Economy",
                 },
                 new HotelRoom
                 {
+                    Id = 2,
                     numberOfBeds = 4,
                     roomSize = 100,
                     quality = "Suite",
                 },
-
+                new HotelRoom
+                {
+                    Id = 3,
+                    numberOfBeds = 3,
+                    roomSize = 70,
+                    quality = "Economy",
+                },
 
             };
             foreach (HotelRoom r in rooms)
@@ -46,9 +55,6 @@
                 hotelRooms.AddOrUpdate(hr => hr.Id, r);
             }
             dbContext.SaveChanges();
-
-
-
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Oblig_3_Web.Model
     public class Reservation
     {
         public int Id { get; set; }
+        public DateTime? startDate { get; set; }
+        public DateTime? endDate { get; set; }
 
         public int UserId { get; set; }
         public User User { get; set; }
