@@ -31,6 +31,7 @@ namespace Oblig_3_Web
             {
                 userList.Add(created_user);
                 userDbContext.SaveChanges();
+                Session["User"] = created_user;
                 Response.Redirect("BookingPage.aspx");
             } else
             {

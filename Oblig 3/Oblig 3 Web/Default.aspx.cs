@@ -1,6 +1,8 @@
 ﻿using Oblig_3_Web.Migrations;
+using Oblig_3_Web.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,6 +12,8 @@ namespace Oblig_3_Web
 {
     public partial class _Default : Page
     {
+        private BookingDbContext userDbContext;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -23,7 +27,16 @@ namespace Oblig_3_Web
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("BookingPage.aspx");
+            userDbContext = new BookingDbContext();
+            List<User> userList = userDbContext.Users.ToList();
+            foreach(User u in userList)
+            {
+                if(username_textbox.Text.Equals(u.username) && password_textbox.Text.Equals(u.password))
+                {
+                    Session["User"] = u;
+                    Response.Redirect("BookingPage.aspx");
+                }
+            }
         }
     }
 }
