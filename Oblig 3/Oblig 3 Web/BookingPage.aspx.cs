@@ -12,6 +12,7 @@ namespace Oblig_3_Web
     public partial class BookingPage : System.Web.UI.Page
     {
         private BookingDbContext roomDbContext;
+        private BookingDbContext resDbContext;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,12 +34,28 @@ namespace Oblig_3_Web
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if(start_date_calendar.SelectedDate != null && end_date_calendar.SelectedDate != null)
+            DateTime startDate = start_date_calendar.SelectedDate;
+            DateTime endDate = end_date_calendar.SelectedDate;
+            if (startDate != null && endDate != null)
             {
+                //Get list of hotel rooms :
                 roomDbContext = new BookingDbContext();
-                DbSet<HotelRoom> roomList = roomDbContext.HotelRooms;
-                List<HotelRoom> list = roomList.ToList();
-                myDataGrid.DataSource = list;
+                DbSet<HotelRoom> roomSet = roomDbContext.HotelRooms;
+                List<HotelRoom> roomList = roomSet.ToList();
+                //Get list of reservations
+                resDbContext = new BookingDbContext();
+                DbSet<Reservation> resSet = resDbContext.Reservations;
+                List<Reservation> resList = resSet.ToList();
+
+                foreach(Reservation res in resList)
+                {
+                    if((startDate >= res.startDate && startDate <= res.endDate) || (endDate >= res.startDate && endDate <= res.endDate))
+                    {
+                        int id = res.HotelRoomId;
+                        roomList.RemoveAll((x) => x.Id == id);
+                    }
+                }
+                myDataGrid.DataSource = roomList;
                 myDataGrid.DataBind();
             }
         }

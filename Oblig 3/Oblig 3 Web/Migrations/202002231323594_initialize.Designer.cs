@@ -13,7 +13,7 @@ namespace Oblig_3_Web.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202002201225386_initialize"; }
+            get { return "202002231323594_initialize"; }
         }
         
         string IMigrationMetadata.Source
