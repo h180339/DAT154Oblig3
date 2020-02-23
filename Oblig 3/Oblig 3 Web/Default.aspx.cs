@@ -34,7 +34,7 @@ namespace Oblig_3_Web
                 if(username_textbox.Text.Equals(u.username) && password_textbox.Text.Equals(u.password))
                 {
                     Session["User"] = u;
-                    Response.Redirect("BookingPage.aspx");
+                    Response.Redirect("UserPage.aspx");
                 }
             }
         }
