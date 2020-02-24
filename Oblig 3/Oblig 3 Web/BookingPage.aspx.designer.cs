@@ -60,6 +60,24 @@ namespace Oblig_3_Web
         protected global::System.Web.UI.WebControls.Calendar end_date_calendar;
 
         /// <summary>
+        /// qualityDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList qualityDropdown;
+
+        /// <summary>
+        /// numberOfBedsDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList numberOfBedsDropdown;
+
+        /// <summary>
         /// search_button control.
         /// </summary>
         /// <remarks>
@@ -67,6 +85,15 @@ namespace Oblig_3_Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button search_button;
+
+        /// <summary>
+        /// searchError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal searchError;
 
         /// <summary>
         /// myDataGrid control.

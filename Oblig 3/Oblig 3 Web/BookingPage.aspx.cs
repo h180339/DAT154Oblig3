@@ -56,13 +56,21 @@ namespace Oblig_3_Web
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void searchForRooms(object sender, EventArgs e)
         {
             DateTime startDate = start_date_calendar.SelectedDate;
             DateTime endDate = end_date_calendar.SelectedDate;
             if (startDate != null && endDate != null)
             {
-                updateDataGrid(startDate, endDate);
+                if (startDate.CompareTo(endDate) > 0)
+                {
+                    searchError.Text = "Start date must be before end date";
+                } else
+                {
+                    searchError.Text = "";
+                    updateDataGrid(startDate, endDate);
+                }
+                
             }
         }
 
@@ -86,6 +94,11 @@ namespace Oblig_3_Web
                     roomList.RemoveAll((x) => x.Id == id);
                 }
             }
+            //Remove entries with too few beds
+            roomList.RemoveAll(x => x.numberOfBeds < int.Parse(numberOfBedsDropdown.SelectedValue));
+            //Remove entries with non-matching quality
+            roomList.RemoveAll(x => !x.quality.Equals(qualityDropdown.SelectedValue));
+           
             myDataGrid.DataSource = roomList;
             myDataGrid.DataBind();
         }

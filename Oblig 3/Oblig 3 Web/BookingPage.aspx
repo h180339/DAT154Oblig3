@@ -18,8 +18,25 @@
             <asp:Calendar ID="end_date_calendar" runat="server"></asp:Calendar>
 
         </div>
-        <asp:Button ID="search_button" runat="server" Text="Search" OnClick="Button1_Click" />
+        <p>Quality:
+        <asp:DropDownList ID="qualityDropdown" runat="server">
+                  <asp:ListItem Selected="True" Value="Low"> Low </asp:ListItem>
+                  <asp:ListItem Value="Medium"> Medium </asp:ListItem>
+                  <asp:ListItem Value="High"> High </asp:ListItem>
+                  <asp:ListItem Value="Economy"> Economy </asp:ListItem>
+                  <asp:ListItem Value="Suite"> Suite </asp:ListItem>
+        </asp:DropDownList>
+        Number of beds:
+            <asp:DropDownList  ID="numberOfBedsDropdown" runat="server">
+                  <asp:ListItem Selected="True" Value="1"> 1</asp:ListItem>
+                  <asp:ListItem Value="2"> 2 </asp:ListItem>
+                  <asp:ListItem Value="3"> 3 </asp:ListItem>
+                  <asp:ListItem Value="4"> 4 </asp:ListItem>
+                  <asp:ListItem Value="5"> 5 </asp:ListItem>
+        </asp:DropDownList></p>
+        <asp:Button ID="search_button" runat="server" Text="Search" OnClick="searchForRooms" />
         <div>
+            <asp:Literal ID="searchError" runat="server"></asp:Literal>
             <asp:DataGrid runat="server" ID="myDataGrid" AutoGenerateColumns="false" OnItemCommand="myDataGrid_ItemCommand">
                 <Columns>    
                     <asp:BoundColumn DataField="Id" Visible="false"/>
