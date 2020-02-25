@@ -16,5 +16,7 @@ namespace DatabaseHandler.Model
 
         public int HotelRoomId { get; set; }
         public HotelRoom HotelRoom { get; set; }
+
+        public String Status { get; set; }
     }
 }

@@ -104,7 +104,8 @@
                     UserId = 1,
                     User = users[0],
                     HotelRoomId = 6,
-                    HotelRoom = rooms.Find(x => x.Id == 6)
+                    HotelRoom = rooms.Find(x => x.Id == 6),
+                    Status = "Created"
                 }
             };
             foreach (Reservation r in reservations)

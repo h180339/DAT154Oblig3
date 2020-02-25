@@ -14,6 +14,7 @@
                     <asp:BoundColumn DataField="startDate" HeaderText="Check in :" DataFormatString="{0:MMMM d, yyyy}"/>
                     <asp:BoundColumn DataField="endDate" HeaderText="Check out :" DataFormatString="{0:MMMM d, yyyy}"/>
                     <asp:BoundColumn DataField="HotelRoomId" HeaderText="Room number"/>
+                    <asp:BoundColumn DataField="Status" HeaderText="Status"/>
                 </Columns>
             </asp:DataGrid>
         </div>

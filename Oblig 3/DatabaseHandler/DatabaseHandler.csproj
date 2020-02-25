@@ -52,9 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContexts.cs" />
-    <Compile Include="Migrations\202002251406403_init.cs" />
-    <Compile Include="Migrations\202002251406403_init.designer.cs">
-      <DependentUpon>202002251406403_init.cs</DependentUpon>
+    <Compile Include="Migrations\202002251651388_init.cs" />
+    <Compile Include="Migrations\202002251651388_init.designer.cs">
+      <DependentUpon>202002251651388_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\HotelRoom.cs" />
@@ -67,8 +67,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002251406403_init.resx">
-      <DependentUpon>202002251406403_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002251651388_init.resx">
+      <DependentUpon>202002251651388_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -27,6 +27,7 @@
                         endDate = c.DateTime(),
                         UserId = c.Int(nullable: false),
                         HotelRoomId = c.Int(nullable: false),
+                        Status = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.HotelRooms", t => t.HotelRoomId, cascadeDelete: true)

@@ -46,7 +46,8 @@ namespace Oblig_3_Web
                 startDate = start_date_calendar.SelectedDate,
                 endDate = end_date_calendar.SelectedDate,
                 User = user,
-                HotelRoom = hotelRoom
+                HotelRoom = hotelRoom,
+                Status = "Created"
             };
 
             resSet.Add(reservation);
