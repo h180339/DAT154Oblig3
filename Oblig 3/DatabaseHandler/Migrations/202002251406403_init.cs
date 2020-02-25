@@ -1,9 +1,9 @@
-﻿namespace Oblig_3_Web.Migrations
+﻿namespace DatabaseHandler.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialize : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {

@@ -52,13 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContexts.cs" />
-    <Compile Include="Migrations\202002231323594_initialize.cs" />
-    <Compile Include="Migrations\202002231323594_initialize.Designer.cs">
-      <DependentUpon>202002231323594_initialize.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002251217496_EmptyMigration.cs" />
-    <Compile Include="Migrations\202002251217496_EmptyMigration.Designer.cs">
-      <DependentUpon>202002251217496_EmptyMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202002251406403_init.cs" />
+    <Compile Include="Migrations\202002251406403_init.designer.cs">
+      <DependentUpon>202002251406403_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\HotelRoom.cs" />
@@ -67,16 +63,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002231323594_initialize.resx">
-      <DependentUpon>202002231323594_initialize.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002251217496_EmptyMigration.resx">
-      <DependentUpon>202002251217496_EmptyMigration.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002251406403_init.resx">
+      <DependentUpon>202002251406403_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

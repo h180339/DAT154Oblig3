@@ -31,8 +31,6 @@ namespace Oblig_3_Web
         {
             userDbContext = new BookingDbContext();
 
-
-
             List<User> userList = userDbContext.Users.ToList();
             foreach(User u in userList)
             {
