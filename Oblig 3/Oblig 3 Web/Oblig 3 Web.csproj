@@ -164,7 +164,6 @@
     <Content Include="Site.Master" />
     <Content Include="UserPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
@@ -192,7 +191,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DbContexts.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,14 +201,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002241624417_init.cs" />
-    <Compile Include="Migrations\202002241624417_init.designer.cs">
-      <DependentUpon>202002241624417_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\HotelRoom.cs" />
-    <Compile Include="Model\Reservation.cs" />
-    <Compile Include="Model\User.cs" />
     <Compile Include="MyReservationPage.aspx.cs">
       <DependentUpon>MyReservationPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,17 +252,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002241624417_init.resx">
-      <DependentUpon>202002241624417_init.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\DatabaseHandler\DatabaseHandler.csproj">
+      <Project>{1711c0a2-a009-414d-8757-7f50dec3b8d0}</Project>
+      <Name>DatabaseHandler</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

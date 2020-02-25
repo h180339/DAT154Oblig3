@@ -1,8 +1,10 @@
-﻿using Oblig_3_Web.Migrations;
-using Oblig_3_Web.Model;
+﻿
+using DatabaseHandler.Model;
+using DatabaseHandler;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -28,6 +30,9 @@ namespace Oblig_3_Web
         protected void Button2_Click(object sender, EventArgs e)
         {
             userDbContext = new BookingDbContext();
+
+
+
             List<User> userList = userDbContext.Users.ToList();
             foreach(User u in userList)
             {

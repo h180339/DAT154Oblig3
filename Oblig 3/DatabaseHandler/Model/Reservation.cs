@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Oblig_3_Web.Model
+namespace DatabaseHandler.Model
 {
     public class Reservation
     {

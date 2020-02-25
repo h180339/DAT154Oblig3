@@ -1,15 +1,16 @@
-﻿using Oblig_3_Web.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DatabaseHandler;
+using DatabaseHandler.Model;
 
 namespace Oblig_3_Web
 {
-    public partial class BookingPage : System.Web.UI.Page
+    public partial class BookingPage : Page
     {
         private BookingDbContext dbContext;
 
@@ -24,6 +25,7 @@ namespace Oblig_3_Web
 
         protected void myDataGrid_ItemCommand(object source, DataGridCommandEventArgs e)
         {
+
             dbContext = new BookingDbContext();
             List<User> userList = dbContext.Users.ToList();
             List<HotelRoom> hrList = dbContext.HotelRooms.ToList();
@@ -81,7 +83,7 @@ namespace Oblig_3_Web
             DbSet<HotelRoom> roomSet = dbContext.HotelRooms;
             List<HotelRoom> roomList = roomSet.ToList();
             //Get list of reservations
-            dbContext = new BookingDbContext();
+            dbContext = new DatabaseHandler.BookingDbContext();
             DbSet<Reservation> resSet = dbContext.Reservations;
             List<Reservation> resList = resSet.ToList();
 
