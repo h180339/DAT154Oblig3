@@ -8,16 +8,17 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RegisterRS">
 
-    <Grid>
+    <Grid VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Register room service / maintenance" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0"/>
-        <DataGrid x:Name="hotelRooms" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" Grid.Column="0" Grid.Row="1" Height="Auto">
+        <DataGrid x:Name="hotelRooms" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" Grid.Column="0" Grid.Row="1" Height="Auto" SelectionChanged="hotelRooms_SelectionChanged" Margin="4">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Room Number" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Number of beds" Binding="{Binding numberOfBeds}"/>
@@ -26,9 +27,17 @@
                 <DataGridComboBoxColumn Header="Status" TextBinding="{Binding status}" x:Name="statusColumn"/>
             </DataGrid.Columns>
         </DataGrid>
-        <WrapPanel Height="auto" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2">
-            <Button Content="Save Changes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto" Click="Update_Click"/>
-            <Button Content="Home" Width="Auto" Click="Home_Click"/>
+        <Button Content="Save Changes" Width="Auto" Grid.Column="0" Grid.Row="2" Click="Update_Click" Margin="4"/>
+        <DataGrid x:Name="roomServices" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" Grid.Column="0" Grid.Row="3" Height="Auto" Margin="4">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Service" Binding="{Binding Item}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox  Text="" x:Name="RoomServiceItem" Width="Auto" Grid.Column="0" Grid.Row="4" Margin="4"/>
+        <WrapPanel Height="auto" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="5" Margin="0">
+            <Button Content="Add Room Service" Width="Auto" Click="Add_Room_Service_Click" Margin="4"/>
+            <Button Content="Delete Room Service" Width="Auto" Click="Delete_Room_Service_Click" Margin="4"/>
         </WrapPanel>
+        <Button Content="Home" Width="Auto" Click="Home_Click" Grid.Column="0" Grid.Row="6" Margin="4"/>
     </Grid>
 </Page>

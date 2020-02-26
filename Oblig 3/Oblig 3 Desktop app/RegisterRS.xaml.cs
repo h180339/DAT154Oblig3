@@ -33,6 +33,7 @@ namespace Oblig_3_Desktop_app
         private void Load()
         {
             dbContext = new BookingDbContext();
+
             List<HotelRoom> resList = dbContext.HotelRooms.ToList();
             hotelRooms.ItemsSource = resList;
 
@@ -47,6 +48,55 @@ namespace Oblig_3_Desktop_app
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             dbContext.SaveChanges();
+        }
+
+        private void Add_Room_Service_Click(object sender, RoutedEventArgs e)
+        {
+            if (hotelRooms.SelectedItem != null)
+            {
+                if (!String.IsNullOrWhiteSpace(RoomServiceItem.Text))
+                {
+                    RoomService service = new RoomService
+                    {
+                        Room = hotelRooms.SelectedItem as HotelRoom,
+                        Item = RoomServiceItem.Text
+                    };
+
+                    dbContext.AddRoomService(service);
+                    roomServices.ItemsSource = dbContext.GetRoomServicesForHotelRoom(service.Room);
+                }
+                else
+                {
+                    MessageBox.Show("Please enter desired service.");
+                }
+            } 
+            else
+            {
+                MessageBox.Show("Please select a room to add room service for.");
+            }
+        }
+
+        private void Delete_Room_Service_Click(object sender, RoutedEventArgs e)
+        {
+            if (roomServices.SelectedItem != null)
+            {
+                HotelRoom room = (roomServices.SelectedItem as RoomService)?.Room;
+
+                dbContext.DeleteRoomService(roomServices.SelectedItem as RoomService);
+                roomServices.ItemsSource = dbContext.GetRoomServicesForHotelRoom(room);
+            }
+        }
+
+        private void hotelRooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (hotelRooms.SelectedItem != null)
+            {
+                roomServices.ItemsSource = dbContext.GetRoomServicesForHotelRoom((hotelRooms.SelectedItem as HotelRoom));
+            }
+            else
+            {
+                roomServices.ItemsSource = null;
+            }
         }
     }
 }

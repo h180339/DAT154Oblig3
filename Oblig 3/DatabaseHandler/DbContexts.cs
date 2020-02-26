@@ -12,6 +12,25 @@ namespace DatabaseHandler
         public DbSet<User> Users { get; set; }
         public DbSet<HotelRoom> HotelRooms { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<RoomService> RoomServices { get; set; }
+
+
+        public List<RoomService> GetRoomServicesForHotelRoom(HotelRoom room)
+        {
+            return RoomServices.ToList().Where(rs => rs.Room.Id == room.Id).ToList();
+        }
+
+        public void DeleteRoomService(RoomService rs)
+        {
+            RoomServices.Remove(rs);
+            SaveChanges();
+        }
+
+        public void AddRoomService(RoomService rs)
+        {
+            RoomServices.Add(rs);
+            SaveChanges();
+        }
 
         public List<HotelRoom> getRoomsInTimeperiod((DateTime? , DateTime?) dates)
         {

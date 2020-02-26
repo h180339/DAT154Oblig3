@@ -98,6 +98,20 @@
             {
                 hotelRooms.AddOrUpdate(hr => hr.Id, r);
             }
+            DbSet<DatabaseHandler.Model.RoomService> roomServices = dbContext.RoomServices;
+            List<DatabaseHandler.Model.RoomService> roomServs = new List<DatabaseHandler.Model.RoomService>()
+            {
+                new DatabaseHandler.Model.RoomService
+                {
+                   Id = 1,
+                   Room = rooms[0],
+                   Item = "Pizza"
+                }
+            };
+            foreach (DatabaseHandler.Model.RoomService rs in roomServs)
+            {
+                roomServices.AddOrUpdate(hr => hr.Id, rs);
+            }
             //Reservations: 
             DbSet<Reservation> resSet = dbContext.Reservations;
             List<Reservation> reservations = new List<Reservation>()
