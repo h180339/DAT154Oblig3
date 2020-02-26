@@ -44,6 +44,20 @@ namespace DatabaseHandler
             return Reservations.ToList().Find(x => id == x.Id);
         }
 
+        public HotelRoom findHotelRoom(int id)
+        {
+            return HotelRooms.ToList().Find(x => id == x.Id);
+        }
+
+        public void replaceReservation(Reservation reservation)
+        {
+            Reservation toDelete = findReservation(reservation.Id);
+            DeleteReservation(toDelete.Id);
+            Reservations.Add(reservation);
+            this.SaveChanges();
+            
+        }
+
         public void AddReservation(int hotelRoomId, int sessionUserId, (DateTime?, DateTime?) dates)
         {
 

@@ -34,7 +34,7 @@ namespace Oblig_3_Desktop_app
         {
             this.NavigationService.Navigate(new FrontPage());
         }
-        private void Load()
+        public void Load()
         {
             dbContext = new BookingDbContext();
             List<Reservation> resList = dbContext.Reservations.ToList();
@@ -96,7 +96,7 @@ namespace Oblig_3_Desktop_app
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-            EditReservationPage erp = new EditReservationPage(reservationGrid.SelectedItem as Reservation);
+            EditReservationPage erp = new EditReservationPage(reservationGrid.SelectedItem as Reservation, this);
             erp.ShowDialog();
         }
     }

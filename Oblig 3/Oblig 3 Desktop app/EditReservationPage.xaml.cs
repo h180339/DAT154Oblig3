@@ -23,12 +23,14 @@ namespace Oblig_3_Desktop_app
     {
         private BookingDbContext dbContext;
         private Reservation chosenReservation;
+        private ManageReservation manageReservation;
 
-        public EditReservationPage(Reservation reservation)
+        public EditReservationPage(Reservation reservation, ManageReservation manageReservation)
         {
             InitializeComponent();
             dbContext = new BookingDbContext();
             this.chosenReservation = dbContext.findReservation(reservation.Id);
+            this.manageReservation = manageReservation;
             Load();
         }
 
@@ -43,7 +45,12 @@ namespace Oblig_3_Desktop_app
 
         private void ChooseBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            HotelRoom gridHR = (editReservationGrid.SelectedItem as HotelRoom);
+            this.chosenReservation.HotelRoomId = gridHR.Id;
+            this.chosenReservation.HotelRoom = dbContext.findHotelRoom(gridHR.Id);
+            dbContext.replaceReservation(this.chosenReservation);
+            manageReservation.Load();
+            this.Close();
         }
     }
 }
