@@ -13,33 +13,23 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Oblig_3_Universal_app
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class CleanerPage : Page
     {
-        public MainPage()
+        public CleanerPage()
         {
             this.InitializeComponent();
         }
 
-        private void MaintainerBtn_Click(object sender, RoutedEventArgs e)
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MaintainerPage), null);
-        }
-
-        private void CleanerBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(CleanerPage), null);
-        }
-
-        private void ServiceBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(ServicePage), null);
+            this.Frame.Navigate(typeof(MainPage), null);
         }
     }
 }
