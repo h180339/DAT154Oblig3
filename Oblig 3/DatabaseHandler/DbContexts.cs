@@ -39,6 +39,10 @@ namespace DatabaseHandler
             Reservations.Remove(toDelete);
             this.SaveChanges();
         }
+        public Reservation findReservation(int id)
+        {
+            return Reservations.ToList().Find(x => id == x.Id);
+        }
 
         public void AddReservation(int hotelRoomId, int sessionUserId, (DateTime?, DateTime?) dates)
         {

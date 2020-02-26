@@ -26,14 +26,14 @@ namespace Oblig_3_Desktop_app
 
         public EditReservationPage(Reservation reservation)
         {
-            this.chosenReservation = reservation;
             InitializeComponent();
+            dbContext = new BookingDbContext();
+            this.chosenReservation = dbContext.findReservation(reservation.Id);
             Load();
         }
 
         private void Load()
         {
-            dbContext = new BookingDbContext();
             DateTime? checkIn = this.chosenReservation.startDate;
             DateTime? checkOut = this.chosenReservation.endDate;
             List<HotelRoom> hrList = dbContext.getRoomsInTimeperiod((checkIn, checkOut));
