@@ -38,7 +38,7 @@
         </DataGrid>
         <DatePicker x:Name="CheckInCal" HorizontalAlignment="Left" Margin="108,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.088,0.708"/>
         <DatePicker x:Name="CheckOutCal" HorizontalAlignment="Left" Margin="108,297,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="serchResGrid" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" Margin="247,240,10,10" SelectionChanged="serchResGrid_SelectionChanged" >
+        <DataGrid x:Name="serchResGrid" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" Margin="247,240,10,10" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Room number" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Number of beds" Binding="{Binding numberOfBeds}"/>
