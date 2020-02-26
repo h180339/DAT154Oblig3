@@ -9,16 +9,68 @@
       Title="ManageReservation">
 
     <Grid>
-        <Label Content="Manage Reservation" HorizontalAlignment="Left" Margin="38,17,0,0" VerticalAlignment="Top"/>
-        <Button Content="Home" HorizontalAlignment="Left" Margin="38,387,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <DataGrid x:Name="reservationGrid" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False">
+        <Label Content="Manage Reservation" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="156"/>
+        <Button Content="Home" HorizontalAlignment="Left" Margin="697,399,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="8.947,1.45"/>
+        <DataGrid x:Name="reservationGrid" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" Margin="0,37,0,251" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Start date" Binding="{Binding startDate}"/>
                 <DataGridTextColumn Header="End date" Binding="{Binding endDate}"/>
                 <DataGridTextColumn Header="Hotel Room" Binding="{Binding HotelRoomId}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Action"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="RemoveBtn" Content="Remove" Click="RemoveBtn_Click"/>
+                                <Button x:Name="EditBtn" Content="Edit" Click="EditBtn_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <DatePicker x:Name="CheckInCal" HorizontalAlignment="Left" Margin="108,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.088,0.708"/>
+        <DatePicker x:Name="CheckOutCal" HorizontalAlignment="Left" Margin="108,297,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="serchResGrid" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" Margin="245,220,108,31" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Room number" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Number of beds" Binding="{Binding numberOfBeds}"/>
+                <DataGridTextColumn Header="roomSize" Binding="{Binding roomSize}"/>
+                <DataGridTextColumn Header="quality" Binding="{Binding quality}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Action"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="AddBtn" Content="Add" Click="AddBtn_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="SearchBtn" Content="Search" HorizontalAlignment="Left" Margin="108,399,0,0" VerticalAlignment="Top" Width="75" Click="SearchBtn_Click"/>
+        <Label Content="Check in : " HorizontalAlignment="Left" Margin="18,238,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.289,0.5"/>
+        <Label Content="Check out : " HorizontalAlignment="Left" Margin="10,295,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="userNamesDropDown"  HorizontalAlignment="Left" Margin="108,347,0,0" VerticalAlignment="Top" Width="120" Text="{Binding username}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding username}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
 
     </Grid>
 </Page>

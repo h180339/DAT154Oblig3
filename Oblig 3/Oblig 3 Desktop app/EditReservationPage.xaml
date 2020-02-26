@@ -1,0 +1,34 @@
+﻿<Window x:Class="Oblig_3_Desktop_app.EditReservationPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Oblig_3_Desktop_app"
+        mc:Ignorable="d"
+        Title="EditReservationPage" Height="450" Width="800">
+    <Grid>
+        <Label Content="Edit reservation" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="editReservationGrid" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" Margin="10,41,10,10" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Room number" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Number of beds" Binding="{Binding numberOfBeds}"/>
+                <DataGridTextColumn Header="roomSize" Binding="{Binding roomSize}"/>
+                <DataGridTextColumn Header="quality" Binding="{Binding quality}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Action"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="ChooseBtn" Content="Choose this room" Click="ChooseBtn_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

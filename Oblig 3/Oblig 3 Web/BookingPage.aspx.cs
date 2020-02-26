@@ -25,21 +25,29 @@ namespace Oblig_3_Web
 
         protected void myDataGrid_ItemCommand(object source, DataGridCommandEventArgs e)
         {
-
+            
             dbContext = new BookingDbContext();
+            /*
             List<User> userList = dbContext.Users.ToList();
             List<HotelRoom> hrList = dbContext.HotelRooms.ToList();
             DbSet<Reservation> resSet = dbContext.Reservations;
 
 
             //Create a object of hotelroom chosen
-            TableCellCollection cells = e.Item.Cells;
             HotelRoom hotelRoom = hrList.Find(x => x.Id == Convert.ToInt32(cells[0].Text));
+            */
+            TableCellCollection cells = e.Item.Cells;
+
+            int hotelRoomId = Convert.ToInt32(cells[0].Text);
 
             //Find user
             User sessionUser = Session["User"] as User;
-            User user = userList.Find(x => x.Id == sessionUser.Id);
+            int sessionUserId = sessionUser.Id;
+            //User user = userList.Find(x => x.Id == sessionUser.Id);
 
+            dbContext.AddReservation(hotelRoomId, sessionUserId, (start_date_calendar.SelectedDate, end_date_calendar.SelectedDate));
+
+            /*
             //Creates the reservation
             Reservation reservation = new Reservation()
             {
@@ -52,7 +60,7 @@ namespace Oblig_3_Web
 
             resSet.Add(reservation);
             dbContext.SaveChanges();
-
+            */
             updateDataGrid(start_date_calendar.SelectedDate, end_date_calendar.SelectedDate);
 
             //TODO: redirect somewhere when booked ?
@@ -81,22 +89,10 @@ namespace Oblig_3_Web
         {
             //Get list of hotel rooms :
             dbContext = new BookingDbContext();
-            DbSet<HotelRoom> roomSet = dbContext.HotelRooms;
-            List<HotelRoom> roomList = roomSet.ToList();
-            //Get list of reservations
-            dbContext = new DatabaseHandler.BookingDbContext();
-            DbSet<Reservation> resSet = dbContext.Reservations;
-            List<Reservation> resList = resSet.ToList();
+            //DbSet<HotelRoom> roomSet = dbContext.HotelRooms;
+            //List<HotelRoom> roomList = roomSet.ToList();
+            List<HotelRoom> roomList = dbContext.getRoomsInTimeperiod((startDate, endDate));
 
-            //Removes rooms that are already reserved in the time period chosen
-            foreach (Reservation res in resList)
-            {
-                if ((startDate >= res.startDate && startDate <= res.endDate) || (endDate >= res.startDate && endDate <= res.endDate))
-                {
-                    int id = res.HotelRoomId;
-                    roomList.RemoveAll((x) => x.Id == id);
-                }
-            }
             //Remove entries with too few beds
             roomList.RemoveAll(x => x.numberOfBeds < int.Parse(numberOfBedsDropdown.SelectedValue));
             //Remove entries with non-matching quality
