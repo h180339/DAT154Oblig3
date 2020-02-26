@@ -61,9 +61,18 @@
     <Compile Include="Migrations\202002261252133_RoomStatus.designer.cs">
       <DependentUpon>202002261252133_RoomStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002261427119_RoomService.cs" />
+    <Compile Include="Migrations\202002261427119_RoomService.designer.cs">
+      <DependentUpon>202002261427119_RoomService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002261439075_RoomServiceUserToRoom.cs" />
+    <Compile Include="Migrations\202002261439075_RoomServiceUserToRoom.designer.cs">
+      <DependentUpon>202002261439075_RoomServiceUserToRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\HotelRoom.cs" />
     <Compile Include="Model\Reservation.cs" />
+    <Compile Include="Model\RoomService.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +86,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002261252133_RoomStatus.resx">
       <DependentUpon>202002261252133_RoomStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002261427119_RoomService.resx">
+      <DependentUpon>202002261427119_RoomService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002261439075_RoomServiceUserToRoom.resx">
+      <DependentUpon>202002261439075_RoomServiceUserToRoom.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

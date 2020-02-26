@@ -16,6 +16,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Register room service / maintenance" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0"/>
         <DataGrid x:Name="hotelRooms" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" Grid.Column="0" Grid.Row="1" Height="Auto" SelectionChanged="hotelRooms_SelectionChanged" Margin="4">
