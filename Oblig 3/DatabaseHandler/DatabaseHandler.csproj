@@ -52,9 +52,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContexts.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Migrations\202002251651388_init.cs" />
     <Compile Include="Migrations\202002251651388_init.designer.cs">
       <DependentUpon>202002251651388_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002261252133_RoomStatus.cs" />
+    <Compile Include="Migrations\202002261252133_RoomStatus.designer.cs">
+      <DependentUpon>202002261252133_RoomStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\HotelRoom.cs" />
@@ -69,6 +74,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002251651388_init.resx">
       <DependentUpon>202002251651388_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002261252133_RoomStatus.resx">
+      <DependentUpon>202002261252133_RoomStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,8 +9,26 @@
       Title="RegisterRS">
 
     <Grid>
-        <Label Content="Register room service / maintenance" HorizontalAlignment="Left" Margin="74,35,0,0" VerticalAlignment="Top"/>
-        <Button Content="Home" HorizontalAlignment="Left" Margin="61,264,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Content="Register room service / maintenance" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0"/>
+        <DataGrid x:Name="hotelRooms" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" Grid.Column="0" Grid.Row="1" Height="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Room Number" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Number of beds" Binding="{Binding numberOfBeds}"/>
+                <DataGridTextColumn Header="Room Size" Binding="{Binding roomSize}"/>
+                <DataGridComboBoxColumn Header="Quality" TextBinding="{Binding quality}" x:Name="qualityColumn"/>
+                <DataGridComboBoxColumn Header="Status" TextBinding="{Binding status}" x:Name="statusColumn"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel Height="auto" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2">
+            <Button Content="Save Changes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto" Click="Update_Click"/>
+            <Button Content="Home" Width="Auto" Click="Home_Click"/>
+        </WrapPanel>
     </Grid>
 </Page>

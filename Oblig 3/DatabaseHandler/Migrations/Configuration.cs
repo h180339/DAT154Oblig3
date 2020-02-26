@@ -50,6 +50,7 @@
                     numberOfBeds = 2,
                     roomSize = 20,
                     quality = "Economy",
+                    status = "Clean"
                 },
                 new HotelRoom
                 {
@@ -57,6 +58,7 @@
                     numberOfBeds = 4,
                     roomSize = 100,
                     quality = "Suite",
+                    status = "Clean"
                 },
                 new HotelRoom
                 {
@@ -64,6 +66,7 @@
                     numberOfBeds = 3,
                     roomSize = 70,
                     quality = "Economy",
+                    status = "Clean"
                 },
                 new HotelRoom
                 {
@@ -71,6 +74,7 @@
                     numberOfBeds = 3,
                     roomSize = 50,
                     quality = "High",
+                    status = "Clean"
                 },
                 new HotelRoom
                 {
@@ -78,6 +82,7 @@
                     numberOfBeds = 1,
                     roomSize = 10,
                     quality = "Low",
+                    status = "Clean"
                 },
                 new HotelRoom
                 {
@@ -85,6 +90,7 @@
                     numberOfBeds = 3,
                     roomSize = 60,
                     quality = "Medium",
+                    status = "Clean"
                 }
 
             };
