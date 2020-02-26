@@ -53,21 +53,9 @@
   <ItemGroup>
     <Compile Include="DbContexts.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Migrations\202002251651388_init.cs" />
-    <Compile Include="Migrations\202002251651388_init.designer.cs">
-      <DependentUpon>202002251651388_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261252133_RoomStatus.cs" />
-    <Compile Include="Migrations\202002261252133_RoomStatus.designer.cs">
-      <DependentUpon>202002261252133_RoomStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261427119_RoomService.cs" />
-    <Compile Include="Migrations\202002261427119_RoomService.designer.cs">
-      <DependentUpon>202002261427119_RoomService.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261439075_RoomServiceUserToRoom.cs" />
-    <Compile Include="Migrations\202002261439075_RoomServiceUserToRoom.designer.cs">
-      <DependentUpon>202002261439075_RoomServiceUserToRoom.cs</DependentUpon>
+    <Compile Include="Migrations\202002261833200_init.cs" />
+    <Compile Include="Migrations\202002261833200_init.designer.cs">
+      <DependentUpon>202002261833200_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\HotelRoom.cs" />
@@ -81,17 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002251651388_init.resx">
-      <DependentUpon>202002251651388_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261252133_RoomStatus.resx">
-      <DependentUpon>202002261252133_RoomStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261427119_RoomService.resx">
-      <DependentUpon>202002261427119_RoomService.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261439075_RoomServiceUserToRoom.resx">
-      <DependentUpon>202002261439075_RoomServiceUserToRoom.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002261833200_init.resx">
+      <DependentUpon>202002261833200_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

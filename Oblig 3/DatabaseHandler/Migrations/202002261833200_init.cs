@@ -15,6 +15,7 @@
                         numberOfBeds = c.Int(nullable: false),
                         roomSize = c.Int(nullable: false),
                         quality = c.String(),
+                        status = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -45,14 +46,29 @@
                     })
                 .PrimaryKey(t => t.Id);
             
+            CreateTable(
+                "dbo.RoomServices",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Item = c.String(),
+                        Room_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.HotelRooms", t => t.Room_Id)
+                .Index(t => t.Room_Id);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.RoomServices", "Room_Id", "dbo.HotelRooms");
             DropForeignKey("dbo.Reservations", "UserId", "dbo.Users");
             DropForeignKey("dbo.Reservations", "HotelRoomId", "dbo.HotelRooms");
+            DropIndex("dbo.RoomServices", new[] { "Room_Id" });
             DropIndex("dbo.Reservations", new[] { "HotelRoomId" });
             DropIndex("dbo.Reservations", new[] { "UserId" });
+            DropTable("dbo.RoomServices");
             DropTable("dbo.Users");
             DropTable("dbo.Reservations");
             DropTable("dbo.HotelRooms");
