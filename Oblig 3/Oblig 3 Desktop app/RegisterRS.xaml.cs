@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DatabaseHandler;
-using DatabaseHandler.Model;
+using DatabaseHandlerStandard;
+using DatabaseHandlerStandard.Model;
 
 namespace Oblig_3_Desktop_app
 {
@@ -37,8 +37,8 @@ namespace Oblig_3_Desktop_app
             List<HotelRoom> resList = dbContext.HotelRooms.ToList();
             hotelRooms.ItemsSource = resList;
 
-            statusColumn.ItemsSource = DatabaseHandler.Constants.roomStatuses;
-            qualityColumn.ItemsSource = DatabaseHandler.Constants.roomQualities;
+            statusColumn.ItemsSource = DatabaseHandlerStandard.Constants.roomStatuses;
+            qualityColumn.ItemsSource = DatabaseHandlerStandard.Constants.roomQualities;
         }
 
          private void Home_Click(object sender, RoutedEventArgs e)

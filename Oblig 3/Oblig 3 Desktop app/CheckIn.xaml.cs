@@ -1,5 +1,5 @@
-﻿using DatabaseHandler;
-using DatabaseHandler.Model;
+﻿using DatabaseHandlerStandard;
+using DatabaseHandlerStandard.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,10 +58,14 @@ namespace Oblig_3_Desktop_app
         private void checkOutBtnClick(object sender, RoutedEventArgs e)
         {
             Reservation selectedReservation = reservationGrid.SelectedItem as Reservation;
+            resList = dbContext.Reservations.ToList();
+            List<HotelRoom> hotelRoomList = dbContext.HotelRooms.ToList();
 
             Reservation databaseReservation = resList.Find(x => x.Id == selectedReservation.Id);
 
             databaseReservation.Status = "Checked out";
+
+            databaseReservation.HotelRoom.status = Constants.roomStatuses[1];
 
             dbContext.SaveChanges();
 

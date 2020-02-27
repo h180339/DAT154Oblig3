@@ -1,5 +1,5 @@
-﻿using DatabaseHandler;
-using DatabaseHandler.Model;
+﻿using DatabaseHandlerStandard;
+using DatabaseHandlerStandard.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DatabaseHandler.Model;
-using DatabaseHandler;
+using DatabaseHandlerStandard.Model;
+using DatabaseHandlerStandard;
 
 namespace Oblig_3_Web
 {
