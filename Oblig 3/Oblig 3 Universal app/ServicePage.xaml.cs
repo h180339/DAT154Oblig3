@@ -32,6 +32,7 @@ namespace Oblig_3_Universal_app
 
             dbContext = new BookingDbContext();
             RoomServices = dbContext.RoomServices.ToList();
+            List<HotelRoom> hotelRooms = dbContext.HotelRooms.ToList();
             serviceList.ItemsSource = RoomServices;
         }
 

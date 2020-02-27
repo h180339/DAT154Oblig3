@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DatabaseHandlerStandard.Model;
 using DatabaseHandlerStandard;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Oblig_3_Web
 {

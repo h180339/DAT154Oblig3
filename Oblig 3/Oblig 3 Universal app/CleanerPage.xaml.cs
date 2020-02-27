@@ -25,17 +25,27 @@ namespace Oblig_3_Universal_app
     public sealed partial class CleanerPage : Page
     {
         private BookingDbContext dbContext;
+        public List<HotelRoom> HotelRooms { get; set; } = new List<HotelRoom>();
         public CleanerPage()
         {
             this.InitializeComponent();
             dbContext = new BookingDbContext();
-            List<Reservation> resList = dbContext.Reservations.ToList();
-            reservationGrid.ItemsSource = resList;
+            HotelRooms = dbContext.HotelRooms.ToList();
+
+            HotelRooms.RemoveAll(r => !(r.status.Equals(DatabaseHandlerStandard.Constants.roomStatuses[1]) || r.status.Equals(DatabaseHandlerStandard.Constants.roomStatuses[4])));
+            serviceList.ItemsSource = HotelRooms;
+            statusColumn.ItemsSource = DatabaseHandlerStandard.Constants.roomStatuses;
+            qualityColumn.ItemsSource = DatabaseHandlerStandard.Constants.roomQualities;
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage), null);
+        }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            dbContext.SaveChanges();
         }
     }
 }

@@ -25,7 +25,7 @@
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn Header="Service Number" Width="SizeToHeader" Binding="{Binding Id}" />
                 <controls:DataGridTextColumn Header="Service" Width="SizeToHeader" Binding="{Binding Item}" />
-                <controls:DataGridTextColumn Header="Room Number" Width="SizeToHeader" Binding="{Binding Room_.Id}" />
+                <controls:DataGridTextColumn Header="Room Number" Width="SizeToHeader" Binding="{Binding Room.Id}" />
             </controls:DataGrid.Columns>
         </controls:DataGrid>
     </Grid>
