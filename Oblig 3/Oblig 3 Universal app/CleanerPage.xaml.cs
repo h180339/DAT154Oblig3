@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using DatabaseHandlerStandard.Model;
+using DatabaseHandlerStandard;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +24,13 @@ namespace Oblig_3_Universal_app
     /// </summary>
     public sealed partial class CleanerPage : Page
     {
+        private BookingDbContext dbContext;
         public CleanerPage()
         {
             this.InitializeComponent();
+            dbContext = new BookingDbContext();
+            List<Reservation> resList = dbContext.Reservations.ToList();
+            reservationGrid.ItemsSource = resList;
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
