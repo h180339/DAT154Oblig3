@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DatabaseHandlerStandard;
+using DatabaseHandlerStandard.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +24,15 @@ namespace Oblig_3_Universal_app
     /// </summary>
     public sealed partial class ServicePage : Page
     {
+        private BookingDbContext dbContext;
+        public List<RoomService> RoomServices { get; set; } = new List<RoomService>();
         public ServicePage()
         {
             this.InitializeComponent();
+
+            dbContext = new BookingDbContext();
+            RoomServices = dbContext.RoomServices.ToList();
+            serviceList.ItemsSource = RoomServices;
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
