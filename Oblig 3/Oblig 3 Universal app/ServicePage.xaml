@@ -5,12 +5,28 @@
     xmlns:local="using:Oblig_3_Universal_app"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="171,141,0,0" Text="Service person page" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button x:Name="HomeBtn" Content="Home" Margin="244,349,0,0" VerticalAlignment="Top" Click="HomeBtn_Click"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="4" Text="Service person page" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0"/>
+        <Button x:Name="HomeBtn" Content="Home" Margin="4" VerticalAlignment="Top" Width="Auto"  Click="HomeBtn_Click" Grid.Column="0" Grid.Row="1"/>
+        <controls:DataGrid AutoGenerateColumns="False" x:Name="serviceList" ColumnWidth="*" Margin="4" Grid.Column="0" Grid.Row="2" ItemsSource="{x:Bind RoomServices}">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn Header="Service Number" Width="SizeToHeader" Binding="{Binding Id}" />
+                <controls:DataGridTextColumn Header="Service" Width="SizeToHeader" Binding="{Binding Item}" />
+                <controls:DataGridTextColumn Header="Room Number" Width="SizeToHeader" Binding="{Binding Room_.Id}" />
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
     </Grid>
 </Page>
