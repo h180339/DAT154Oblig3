@@ -1,5 +1,6 @@
 ﻿using DatabaseHandlerStandard;
 using DatabaseHandlerStandard.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,9 @@ namespace Oblig_3_Desktop_app
         public CheckIn()
         {
             InitializeComponent();
+
+            //CRAZY ASS SEED METHOD, BE CAREFUL.
+            //Seed();
             Load();
         }
         private void Load()
@@ -92,6 +96,79 @@ namespace Oblig_3_Desktop_app
         private void resetBtnClick(object sender, RoutedEventArgs e)
         {
             resetReservationGrid();
+        }
+        protected void Seed()
+        {
+
+            BookingDbContext dbContext = new BookingDbContext();
+            //Users
+            dbContext.AddUser(new User
+            {
+                username = "Eirik",
+                password = "passord",
+            });
+
+            //HotelRooms: 
+            List<HotelRoom> rooms = new List<HotelRoom>()
+            {
+                new HotelRoom
+                {
+                    numberOfBeds = 2,
+                    roomSize = 20,
+                    quality = "Economy",
+                    status = "Clean"
+                },
+                new HotelRoom
+                {
+                    numberOfBeds = 4,
+                    roomSize = 100,
+                    quality = "Suite",
+                    status = "Clean"
+                },
+                new HotelRoom
+                {
+                    numberOfBeds = 3,
+                    roomSize = 70,
+                    quality = "Economy",
+                    status = "Clean"
+                },
+                new HotelRoom
+                {
+                    numberOfBeds = 3,
+                    roomSize = 50,
+                    quality = "High",
+                    status = "Clean"
+                },
+                new HotelRoom
+                {
+                    numberOfBeds = 1,
+                    roomSize = 10,
+                    quality = "Low",
+                    status = "Clean"
+                },
+                new HotelRoom
+                {
+                    numberOfBeds = 3,
+                    roomSize = 60,
+                    quality = "Medium",
+                    status = "Clean"
+                }
+
+            };
+            foreach (HotelRoom r in rooms)
+            {
+                dbContext.AddHotelRoom(r);
+            }
+
+
+            dbContext.AddRoomService(new DatabaseHandlerStandard.Model.RoomService
+            {
+                Room = rooms[0],
+                Item = "Pizza"
+            });
+
+            dbContext.SaveChanges();
+
         }
     }
 }

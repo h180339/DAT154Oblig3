@@ -111,5 +111,15 @@ namespace DatabaseHandlerStandard
             this.SaveChanges();
 
         }
+        public void AddUser(User rs)
+        {
+            Users.Add(rs);
+            SaveChanges();
+        }
+        public void AddHotelRoom(HotelRoom rs)
+        {
+            HotelRooms.Add(rs);
+            SaveChanges();
+        }
     }
 }
