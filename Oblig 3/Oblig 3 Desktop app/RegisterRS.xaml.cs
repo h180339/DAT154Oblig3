@@ -23,6 +23,8 @@ namespace Oblig_3_Desktop_app
     public partial class RegisterRS : Page
     {
         private BookingDbContext dbContext;
+        private List<RoomService> RoomServices;
+        private List<HotelRoom> hotelRoomList;
 
         public RegisterRS()
         {
@@ -34,36 +36,43 @@ namespace Oblig_3_Desktop_app
         {
             dbContext = new BookingDbContext();
 
-            List<HotelRoom> resList = dbContext.HotelRooms.ToList();
-            hotelRooms.ItemsSource = resList;
+            hotelRoomList = dbContext.HotelRooms.ToList();
+            List<int> hotelRoomNumbersList = new List<int>();
+            foreach(HotelRoom h in hotelRoomList)
+            {
+                hotelRoomNumbersList.Add(h.Id);
+            }
+            RoomServices = dbContext.RoomServices.ToList();
+            serviceList.ItemsSource = RoomServices;
+            statusColumn.ItemsSource = DatabaseHandlerStandard.Constants.roomServiceStatuses;
+            roomNumberCombo.ItemsSource = hotelRoomNumbersList;
 
-            statusColumn.ItemsSource = DatabaseHandlerStandard.Constants.roomStatuses;
-            qualityColumn.ItemsSource = DatabaseHandlerStandard.Constants.roomQualities;
         }
 
          private void Home_Click(object sender, RoutedEventArgs e)
          {
             NavigationService.Navigate(new FrontPage());
          }
-        private void Update_Click(object sender, RoutedEventArgs e)
+        private void SaveChangesBtn_Click(object sender, RoutedEventArgs e)
         {
             dbContext.SaveChanges();
         }
 
         private void Add_Room_Service_Click(object sender, RoutedEventArgs e)
         {
-            if (hotelRooms.SelectedItem != null)
+            if (roomNumberCombo.SelectedItem != null)
             {
                 if (!String.IsNullOrWhiteSpace(RoomServiceItem.Text))
                 {
                     RoomService service = new RoomService
                     {
-                        Room = hotelRooms.SelectedItem as HotelRoom,
-                        Item = RoomServiceItem.Text
+                        Room = hotelRoomList.Find(x => x.Id == (int)roomNumberCombo.SelectedItem),
+                        Item = RoomServiceItem.Text,
+                        Status = Constants.roomServiceStatuses[0]
                     };
 
                     dbContext.AddRoomService(service);
-                    roomServices.ItemsSource = dbContext.GetRoomServicesForHotelRoom(service.Room);
+                    serviceList.ItemsSource = dbContext.RoomServices.ToList();
                 }
                 else
                 {
@@ -78,24 +87,12 @@ namespace Oblig_3_Desktop_app
 
         private void Delete_Room_Service_Click(object sender, RoutedEventArgs e)
         {
-            if (roomServices.SelectedItem != null)
+            if (serviceList.SelectedItem != null)
             {
-                HotelRoom room = (roomServices.SelectedItem as RoomService)?.Room;
+                HotelRoom room = (serviceList.SelectedItem as RoomService)?.Room;
 
-                dbContext.DeleteRoomService(roomServices.SelectedItem as RoomService);
-                roomServices.ItemsSource = dbContext.GetRoomServicesForHotelRoom(room);
-            }
-        }
-
-        private void hotelRooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (hotelRooms.SelectedItem != null)
-            {
-                roomServices.ItemsSource = dbContext.GetRoomServicesForHotelRoom((hotelRooms.SelectedItem as HotelRoom));
-            }
-            else
-            {
-                roomServices.ItemsSource = null;
+                dbContext.DeleteRoomService(serviceList.SelectedItem as RoomService);
+                serviceList.ItemsSource = dbContext.RoomServices.ToList();
             }
         }
     }

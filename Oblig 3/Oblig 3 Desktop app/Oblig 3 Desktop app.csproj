@@ -165,6 +165,11 @@
     <Compile Include="FrontPage.xaml.cs">
       <DependentUpon>FrontPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200228090142_joakim.cs" />
+    <Compile Include="Migrations\20200228090142_joakim.designer.cs">
+      <DependentUpon>20200228090142_joakim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\BookingDbContextModelSnapshot.cs" />
     <Compile Include="RegisterRS.xaml.cs">
       <DependentUpon>RegisterRS.xaml</DependentUpon>
     </Compile>

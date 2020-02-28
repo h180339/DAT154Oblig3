@@ -10,23 +10,17 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="4" Text="Service person page" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0"/>
-        <Button x:Name="HomeBtn" Content="Home" Margin="4" VerticalAlignment="Top" Width="Auto"  Click="HomeBtn_Click" Grid.Column="0" Grid.Row="1"/>
-        <controls:DataGrid AutoGenerateColumns="False" x:Name="serviceList" ColumnWidth="*" Margin="4" Grid.Column="0" Grid.Row="2" ItemsSource="{x:Bind RoomServices}">
+        <TextBlock HorizontalAlignment="Left" Margin="450,10,0,0" Text="Service person page" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="188" />
+        <Button x:Name="HomeBtn" Content="Home" Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="Auto"  Click="HomeBtn_Click" Grid.Column="0"/>
+        <controls:DataGrid AutoGenerateColumns="False" x:Name="serviceList" ColumnWidth="*" Margin="10,47,10,10" ItemsSource="{x:Bind RoomServices}">
             <controls:DataGrid.Columns>
-                <controls:DataGridTextColumn Header="Service Number" Width="SizeToHeader" Binding="{Binding Id}" />
-                <controls:DataGridTextColumn Header="Service" Width="SizeToHeader" Binding="{Binding Item}" />
-                <controls:DataGridTextColumn Header="Room Number" Width="SizeToHeader" Binding="{Binding Room.Id}" />
+                <controls:DataGridTextColumn Header="Service Number" Binding="{Binding Id}" />
+                <controls:DataGridTextColumn Header="Service" Binding="{Binding Item}" />
+                <controls:DataGridComboBoxColumn x:Name="statusColumn" Header="Status" Binding="{Binding Status}" />
+                <controls:DataGridTextColumn Header="Note"  Binding="{Binding Note}" />
+                <controls:DataGridTextColumn Header="Room Number" Binding="{Binding Room.Id}" />
             </controls:DataGrid.Columns>
         </controls:DataGrid>
+        <Button x:Name="SaveChangesBtn" Content="Save changes" Margin="10,10,0,0" VerticalAlignment="Top" Click="SaveChangesBtn_Click" />
     </Grid>
 </Page>

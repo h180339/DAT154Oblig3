@@ -7,28 +7,15 @@
         mc:Ignorable="d"
         Title="EditReservationPage" Height="450" Width="800">
     <Grid>
-        <Label Content="Edit reservation" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Edit reservation" HorizontalAlignment="Center" Margin="317,10,383,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="editReservationGrid" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" Margin="10,41,10,10" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Room number" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Number of beds" Binding="{Binding numberOfBeds}"/>
                 <DataGridTextColumn Header="roomSize" Binding="{Binding roomSize}"/>
                 <DataGridTextColumn Header="quality" Binding="{Binding quality}"/>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="Action"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.HeaderTemplate>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Button x:Name="ChooseBtn" Content="Choose this room" Click="ChooseBtn_Click"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Save changes" Click="Button_Click" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

@@ -45,6 +45,13 @@ namespace Oblig_3_Desktop_app
                 usernameList.Add(u.username);
             }
             userNamesDropDown.ItemsSource = dbContext.Users.ToList();
+            List<HotelRoom> hotelRoomList = dbContext.HotelRooms.ToList();
+            List<int> hotelRoomNumbersList = new List<int>();
+            foreach (HotelRoom h in hotelRoomList)
+            {
+                hotelRoomNumbersList.Add(h.Id);
+            }
+            hotelRoomNumberComboBox.ItemsSource = hotelRoomNumbersList;
         }
 
         private void RemoveBtn_Click(object sender, RoutedEventArgs e)
@@ -96,8 +103,7 @@ namespace Oblig_3_Desktop_app
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-            EditReservationPage erp = new EditReservationPage(reservationGrid.SelectedItem as Reservation, this);
-            erp.ShowDialog();
+            dbContext.SaveChanges();
         }
     }
 }

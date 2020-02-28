@@ -42,15 +42,9 @@ namespace Oblig_3_Desktop_app
             editReservationGrid.ItemsSource = hrList;
         }
 
-
-        private void ChooseBtn_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            HotelRoom gridHR = (editReservationGrid.SelectedItem as HotelRoom);
-            this.chosenReservation.HotelRoomId = gridHR.Id;
-            this.chosenReservation.HotelRoom = dbContext.findHotelRoom(gridHR.Id);
-            dbContext.replaceReservation(this.chosenReservation);
-            manageReservation.Load();
-            this.Close();
+            dbContext.SaveChanges();
         }
     }
 }

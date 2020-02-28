@@ -34,11 +34,17 @@ namespace Oblig_3_Universal_app
             RoomServices = dbContext.RoomServices.ToList();
             List<HotelRoom> hotelRooms = dbContext.HotelRooms.ToList();
             serviceList.ItemsSource = RoomServices;
+            statusColumn.ItemsSource = DatabaseHandlerStandard.Constants.roomServiceStatuses;
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage), null);
+        }
+
+        private void SaveChangesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            dbContext.SaveChanges();
         }
     }
 }

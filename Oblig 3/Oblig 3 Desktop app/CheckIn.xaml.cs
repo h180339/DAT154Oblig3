@@ -53,7 +53,7 @@ namespace Oblig_3_Desktop_app
 
             Reservation databaseReservation = resList.Find(x => x.Id == selectedReservation.Id);
 
-            databaseReservation.Status = "Checked in";
+            databaseReservation.Status = Constants.reservationStatus[1];
 
             dbContext.SaveChanges();
             reservationGrid.ItemsSource = null;
@@ -67,7 +67,7 @@ namespace Oblig_3_Desktop_app
 
             Reservation databaseReservation = resList.Find(x => x.Id == selectedReservation.Id);
 
-            databaseReservation.Status = "Checked out";
+            databaseReservation.Status = Constants.reservationStatus[2];
 
             databaseReservation.HotelRoom.status = Constants.roomStatuses[1];
 
@@ -164,7 +164,9 @@ namespace Oblig_3_Desktop_app
             dbContext.AddRoomService(new DatabaseHandlerStandard.Model.RoomService
             {
                 Room = rooms[0],
-                Item = "Pizza"
+                Item = "Pizza",
+                Status = Constants.roomServiceStatuses[0]
+                
             });
 
             dbContext.SaveChanges();
